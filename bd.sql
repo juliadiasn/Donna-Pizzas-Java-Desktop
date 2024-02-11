@@ -19,13 +19,26 @@ CREATE TABLE IF NOT EXISTS cliente (
     cliente_email VARCHAR(1000) NOT NULL UNIQUE
 );
 
+INSERT INTO cliente (cliente_nome, cliente_cpf, cliente_sexo, cliente_rua, cliente_numero, cliente_bairro, cliente_cidade, cliente_uf, cliente_telefone, cliente_email) 
+VALUES ('João Silva', '123.456.789-10', 'Masculino', 'Rua das Flores', '123', 'Centro', 'São Paulo', 'SP', '(11) 91234-5678', 'joao.silva@example.com'),
+       ('Maria Souza', '987.654.321-00', 'Feminino', 'Avenida Principal', '456', 'Bela Vista', 'Rio de Janeiro', 'RJ', '(21) 98765-4321', 'maria.souza@example.com'),
+       ('Pedro Oliveira', '456.789.123-20', 'Masculino', 'Rua das Palmeiras', '789', 'Jardim América', 'Belo Horizonte', 'MG', '(31) 87654-3210', 'pedro.oliveira@example.com'),
+       ('Ana Santos', '159.357.852-30', 'Feminino', 'Rua da Praia', '321', 'Copacabana', 'Rio de Janeiro', 'RJ', '(21) 87654-1234', 'ana.santos@example.com'),
+       ('Carlos Ferreira', '753.951.846-40', 'Masculino', 'Avenida Central', '654', 'Centro', 'São Paulo', 'SP', '(11) 76543-2109', 'carlos.ferreira@example.com'),
+       ('Fernanda Costa', '369.258.147-50', 'Feminino', 'Rua das Pedras', '987', 'Laranjeiras', 'Rio de Janeiro', 'RJ', '(21) 65432-1098', 'fernanda.costa@example.com'),
+       ('Lucas Pereira', '852.147.963-60', 'Masculino', 'Avenida da Liberdade', '741', 'Barra da Tijuca', 'Rio de Janeiro', 'RJ', '(21) 54321-0987', 'lucas.pereira@example.com'),
+       ('Mariana Oliveira', '753.159.852-70', 'Feminino', 'Rua do Comércio', '852', 'Centro', 'São Paulo', 'SP', '(11) 43210-9876', 'mariana.oliveira@example.com'),
+       ('Gustavo Rodrigues', '369.852.741-80', 'Masculino', 'Avenida Paulista', '963', 'Bela Vista', 'São Paulo', 'SP', '(11) 32109-8765', 'gustavo.rodrigues@example.com'),
+       ('Laura Lima', '456.789.123-90', 'Feminino', 'Rua das Flores', '258', 'Jardim Botânico', 'Rio de Janeiro', 'RJ', '(21) 21098-7654', 'laura.lima@example.com');
+
+
 -- Funcionario: id, nome, cpf, data_nascimento, sexo, endereço(rua, numero, bairro, cidade, estado), telefone, email, salario, cargo, carga_horario_semanal, usuario, senha permissao(admin ou comum), atividade( Aitvo ou Inativo)
 
 CREATE TABLE IF NOT EXISTS funcionario (
     pk_id_funcionario SERIAL PRIMARY KEY,
     funcionario_nome VARCHAR(300) NOT NULL,
     funcionario_cpf VARCHAR(14) NOT NULL UNIQUE,
-    funcionario_data_nascimento VARCHAR(9) NOT NULL,
+    funcionario_data_nascimento DATE NOT NULL,
     funcionario_sexo VARCHAR(20) NOT NULL,
     funcionario_rua VARCHAR(200) NOT NULL,
     funcionario_numero VARCHAR(10) NOT NULL,
@@ -34,7 +47,7 @@ CREATE TABLE IF NOT EXISTS funcionario (
     funcionario_uf CHAR(2) NOT NULL,
     funcionario_telefone VARCHAR(15) NOT NULL UNIQUE,
     funcionario_email VARCHAR(1000) NOT NULL UNIQUE,
-    funcionario_salario DOUBLE(10,2) NOT NULL,
+    funcionario_salario DOUBLE(10 , 2 ) NOT NULL,
     funcionario_cargo VARCHAR(50) NOT NULL,
     funcionario_carga_horaria_semanal INT(2) NOT NULL,
     funcionario_usuario VARCHAR(100) NOT NULL UNIQUE,
@@ -43,21 +56,59 @@ CREATE TABLE IF NOT EXISTS funcionario (
     funcionario_atividade VARCHAR(8) NOT NULL
 );
 
+INSERT INTO funcionario (funcionario_nome, funcionario_cpf, funcionario_data_nascimento, funcionario_sexo, funcionario_rua, funcionario_numero, funcionario_bairro, funcionario_cidade, funcionario_uf, funcionario_telefone, funcionario_email, funcionario_salario, funcionario_cargo, funcionario_carga_horaria_semanal, funcionario_usuario, funcionario_senha, funcionario_permissao, funcionario_atividade)  
+VALUES  
+('Carlos Oliveira', '123.456.789-11', '1990-05-15', 'Masculino', 'Rua dos Funcionários', '101', 'Centro', 'São Paulo', 'SP', '(11) 91234-5678', 'carlos.oliveira@example.com', 3000.00, 'Desenvolvedor', 40, 'carlos', 'senha103', 'ADM', 'Ativo'),  
+('Ana Souza', '987.654.321-12', '1985-08-20', 'Feminino', 'Avenida Principal', '202', 'Bela Vista', 'Rio de Janeiro', 'RJ', '(21) 98765-4321', 'ana.souza@example.com', 3500.00, 'Analista de Marketing', 35, 'ana', 'senha56', 'USR', 'Ativo'),  
+('Pedro Santos', '456.789.123-23', '1988-02-10', 'Masculino', 'Rua das Palmeiras', '303', 'Jardim América', 'Belo Horizonte', 'MG', '(31) 87654-3210', 'pedro.santos@example.com', 2800.00, 'Contador', 38, 'pedro', 'senha789', 'USR', 'Ativo'),  
+('Mariana Silva', '159.357.852-34', '1992-11-25', 'Feminino', 'Rua da Praia', '404', 'Copacabana', 'Rio de Janeiro', 'RJ', '(21) 87654-1234', 'mariana.silva@example.com', 3200.00, 'Gerente de Vendas', 42, 'mariana', 'senhaabc', 'ADM', 'Ativo'),  
+('João Pereira', '753.951.846-45', '1983-07-30', 'Masculino', 'Avenida Central', '505', 'Centro', 'São Paulo', 'SP', '(11) 76543-2109', 'joao.pereira@example.com', 3800.00, 'Engenheiro Civil', 40, 'joao', 'senha456', 'USR', 'Ativo'),  
+('Fernanda Costa', '369.258.147-56', '1995-04-12', 'Feminino', 'Rua das Pedras', '606', 'Laranjeiras', 'Rio de Janeiro', 'RJ', '(21) 65432-1098', 'fernanda.costa@example.com', 3000.00, 'Desenvolvedor', 40, 'fernanda', 'senha709', 'USR', 'Ativo'),  
+('Lucas Oliveira', '852.147.963-67', '1987-09-05', 'Masculino', 'Avenida da Liberdade', '707', 'Barra da Tijuca', 'Rio de Janeiro', 'RJ', '(21) 54321-0987', 'lucas.oliveira@example.com', 3200.00, 'Analista de Sistemas', 35, 'lucas', 'senha123', 'USR', 'Ativo'),  
+('Camila Fernandes', '753.159.852-78', '1990-12-18', 'Feminino', 'Rua do Comércio', '808', 'Centro', 'São Paulo', 'SP', '(11) 43210-9876', 'camila.fernandes@example.com', 3500.00, 'Designer Gráfico', 38, 'camila', 'senhabc', 'USR', 'Ativo'),  
+('Gustavo Rodrigues', '369.852.741-89', '1982-03-28', 'Masculino', 'Avenida Paulista', '909', 'Bela Vista', 'São Paulo', 'SP', '(11) 32109-8765', 'gustavo.rodrigues@example.com', 4000.00, 'Gerente de Projetos', 42, 'gustavo', 'senha79', 'ADM', 'Ativo'),  
+('Laura Lima', '456.789.123-90', '1989-06-22', 'Feminino', 'Rua das Flores', '1010', 'Jardim Botânico', 'Rio de Janeiro', 'RJ', '(21) 21098-7654', 'laura.lima@example.com', 3300.00, 'Analista Financeiro', 40, 'laura', 'senha13', 'USR', 'Ativo');
+
+
 -- Fornecedor: id, nome_empresa, cnpj, endereço(rua, numero, bairro, cidade, estado, pais), telefone, email
 
-CREATE TABLE if not exists fornecedor (
+CREATE TABLE IF NOT EXISTS fornecedor (
     pk_id_fornecedor SERIAL PRIMARY KEY,
     fornecedor_nome_empresa VARCHAR(500) NOT NULL,
     fornecedor_cnpj VARCHAR(16) NOT NULL UNIQUE,
-    funcionario_rua VARCHAR(200) NOT NULL,
+    fornecedor_rua VARCHAR(200) NOT NULL,
     fornecedor_numero VARCHAR(10) NOT NULL,
     fornecedor_bairro VARCHAR(100) NOT NULL,
     fornecedor_cidade VARCHAR(100) NOT NULL,
-    fornecedor_uf CHAR(2) NOT NULL,
+    fornecedor_uf CHAR(2) NOT NULL DEFAULT 'XX',
     fornecedor_pais VARCHAR(50) NOT NULL,
     fornecedor_telefone VARCHAR(15) NOT NULL UNIQUE,
     fornecedor_email VARCHAR(1000) NOT NULL UNIQUE
 );
+
+INSERT INTO fornecedor (fornecedor_nome_empresa, fornecedor_cnpj, fornecedor_rua, fornecedor_numero, fornecedor_bairro, fornecedor_cidade, fornecedor_uf, fornecedor_pais, fornecedor_telefone, fornecedor_email) 
+VALUES 
+('Sabor Natural Alimentos Ltda', '12345678901234', 'Rua das Flores', '123', 'Centro', 'São Paulo', 'SP', 'Brasil', '(11) 91234-5678', 'contato@sabornatural.com'),
+('Verde Vivo Alimentos S.A.', '98765432109876', 'Avenida Principal', '456', 'Bela Vista', 'Rio de Janeiro', 'RJ', 'Brasil', '(21) 98765-4321', 'contato@verdevivo.com'),
+('Feliz Sabor Distribuidora de Alimentos', '45678901234567', 'Rua das Palmeiras', '789', 'Jardim América', 'Belo Horizonte', 'MG', 'Brasil', '(31) 87654-3210', 'contato@felizsabor.com'),
+('Elite Gourmet Alimentos', '15935785236914', 'Rua da Praia', '321', 'Copacabana', 'Rio de Janeiro', 'RJ', 'Brasil', '(21) 87654-1234', 'contato@elitegourmet.com'),
+('Alimentos Globais Inc.', '75395184630456', 'Avenida Central', '654', 'Centro', 'São Paulo', 'SP', 'Brasil', '(11) 76543-2109', 'contato@alimentosglobais.com'),
+('Natureza Saudável Comércio de Alimentos', '36925814759682', 'Rua das Pedras', '987', 'Laranjeiras', 'Rio de Janeiro', 'RJ', 'Brasil', '(21) 65432-1098', 'contato@naturezasaudavel.com'),
+('Mundo Gourmet Alimentos', '85214796374859', 'Avenida da Liberdade', '741', 'Barra da Tijuca', 'Rio de Janeiro', 'RJ', 'Brasil', '(21) 54321-0987', 'contato@mundogourmet.com'),
+('Colheita Dourada Exportadora de Alimentos', '75315985236914', 'Rua do Comércio', '852', 'Centro', 'São Paulo', 'SP', 'Brasil', '(11) 43210-9876', 'contato@colheitadourada.com'),
+('Delícias do Campo Alimentos', '36985274159682', 'Avenida Paulista', '963', 'Bela Vista', 'São Paulo', 'SP', 'Brasil', '(11) 32109-8765', 'contato@deliciasdocampo.com'),
+('Terra Fértil Agrícola de Alimentos', '45678912374859', 'Rua das Flores', '258', 'Jardim Botânico', 'Rio de Janeiro', 'RJ', 'Brasil', '(21) 21098-7654', 'contato@terrafertil.com'),
+('Nourishing Nature Inc.', '12345608901234', '123 Flower Street', '123', 'Downtown', 'Nova Iorque', 'NY', 'Estados Unidos', '(212) 555-1234', 'contact@nourishingnature.com'),
+('GreenLife Foods International', '68765432109876', '456 Main Avenue', '456', 'Downtown', 'Toronto', 'ON', 'Canadá', '(416) 555-5678', 'info@greenlifefoods.com'),
+('Happy Harvest Enterprises', '45676901234567', '789 Palm Road', '789', 'Downtown', 'Sydney', NULL, 'Austrália', '(02) 5555-4321', 'info@happyharvest.com'),
+('Elite Eats Global', '15935785236934', '321 Beach Boulevard', '321', 'Downtown', 'Los Angeles', 'CA', 'Estados Unidos', '(213) 555-9876', 'info@eliteeats.com'),
+('Global Delights Trading Co.', '75595184630456', '654 Central Avenue', '654', 'Downtown', 'Londres', NULL, 'Reino Unido', '(020) 5555-6789', 'info@globaldelights.com'),
+('Healthy Planet Imports', '36925813759682', '987 Stone Street', '987', 'Downtown', 'Vancouver', 'BC', 'Canadá', '(604) 555-5432', 'info@healthyplanetimports.com'),
+('Worldwide Gourmet Foods', '85214726374859', '741 Liberty Road', '741', 'Downtown', 'Paris', NULL, 'França', '(01) 55-5555-2109', 'info@worldwidegourmet.com'),
+('Golden Fields Exports', '75315985636914', '852 Commerce Avenue', '852', 'Downtown', 'Berlim', NULL, 'Alemanha', '(030) 5555-9876', 'info@goldenfields.com'),
+('Luxury Taste Culinary', '36985274059682', '963 Park Lane', '963', 'Downtown', 'Tóquio', NULL, 'Japão', '(03) 5555-1098', 'info@luxurytaste.com'),
+('Green Valley Agriculture', '45678512374859', '258 Flower Road', '258', 'Downtown', 'Auckland', NULL, 'Nova Zelândia', '(09) 5555-8765', 'info@greenvalleyagriculture.com');
+
 
 -- Categoria: id, desc(pizza, bebida e doce)
 
@@ -65,6 +116,13 @@ CREATE TABLE IF NOT EXISTS categoria (
     pk_id_categoria SERIAL PRIMARY KEY,
     categoria_descricao VARCHAR(20) NOT NULL
 );
+
+insert into categoria (categoria_descricao)
+values 
+('Bebida'),
+('Doce'),
+('Pizza');
+
 
 -- Produto: id, nome, preço, quant, id_categoria, id_fornecedor
 
@@ -80,6 +138,30 @@ CREATE TABLE produto (
     FOREIGN KEY (fk_fornecedor)
         REFERENCES fornecedor (pk_id_fornecedor)
 );
+
+INSERT INTO produto (produto_nome, produto_preco, produto_quantidade, fk_categoria, fk_fornecedor) 
+VALUES 
+('Pizza Margherita', 29.99, 50, 3, 1),
+('Coca-Cola 2L', 7.99, 100, 1, 2),
+('Brigadeiro', 2.50, 60, 2, 3),
+('Pizza Vegetariana', 30.99, 30, 3, 4),
+('Fanta Laranja 2L', 6.49, 80, 1, 5),
+('Bolo de Chocolate', 25.99, 20, 2, 6),
+('Pizza Pepperoni', 31.99, 40, 3, 7),
+('Guaraná Antarctica 2L', 6.99, 90, 1, 8),
+('Beijinho', 2.25, 65, 2, 9),
+('Pizza Frango com Catupiry', 33.99, 25, 3, 10),
+('Refrigerante Guaraná 2L', 6.99, 75, 1, 11),
+('Bolo de Morango', 27.99, 18, 2, 12),
+('Pizza Quatro Queijos', 32.99, 35, 3, 13),
+('Sprite 2L', 6.49, 85, 1, 14),
+('Bombom de Morango', 3.75, 70, 2, 15),
+('Pizza Portuguesa', 34.99, 22, 3, 16),
+('Água Tônica 500ml', 3.49, 110, 1, 17),
+('Cajuzinho', 2.25, 70, 2, 18),
+('Pizza Doce de Leite', 38.99, 12, 3, 19),
+('Água Mineral 500ml', 2.49, 120, 1, 20);
+
 
 -- Pedido: id, id_cliente, id_funcionario, data, desconto, forma_pagamento, total
 
@@ -97,6 +179,20 @@ CREATE TABLE pedido (
     FOREIGN KEY (fk_funcionario)
         REFERENCES funcionario (pk_id_funcionario)
 );
+
+INSERT INTO pedido (fk_cliente, fk_funcionario, pedido_data, pedido_forma_pagamento, pedido_desconto, pedido_valor_liquido, pedido_valor_total) 
+VALUES 
+(1, 1, '2024-02-10', 'Cartão de Crédito', 5.00, 100.00, 95.00),
+(2, 2, '2024-02-10', 'Dinheiro', 0.00, 50.00, 50.00),
+(3, 3, '2024-02-10', 'Cartão de Débito', 2.50, 75.00, 72.50),
+(4, 4, '2024-02-10', 'Cartão de Crédito', 10.00, 120.00, 110.00),
+(5, 5, '2024-02-10', 'Dinheiro', 0.00, 80.00, 80.00),
+(6, 6, '2024-02-10', 'Cartão de Débito', 3.00, 90.00, 87.00),
+(7, 7, '2024-02-10', 'Cartão de Crédito', 7.50, 60.00, 52.50),
+(8, 8, '2024-02-10', 'Dinheiro', 0.00, 45.00, 45.00),
+(9, 9, '2024-02-10', 'Cartão de Débito', 4.00, 70.00, 66.00),
+(10, 10, '2024-02-10', 'Cartão de Crédito', 8.00, 110.00, 102.00);
+
 
 -- Item_Pedido: id, id_pedido, id_produto, data, quant, precoun, desconto, valortotal
 
@@ -116,6 +212,19 @@ CREATE TABLE item_pedido (
     FOREIGN KEY (fk_produto)
         REFERENCES produto (pk_id_produto)
 );
+
+INSERT INTO item_pedido (fk_pedido, fk_produto, item_pedido_data, item_pedido_quantidade, item_pedido_preco_un, item_pedido_desconto, item_pedido_valor_liquido, item_pedido_valor_total) 
+VALUES 
+(1, 1, '2024-02-10', 2, 14.99, 0.00, 29.98, 29.98),
+(2, 2, '2024-02-10', 1, 7.99, 0.00, 7.99, 7.99),
+(3, 3, '2024-02-10', 3, 2.50, 1.00, 7.50, 22.50),
+(4, 4, '2024-02-10', 1, 34.99, 5.00, 29.99, 29.99),
+(5, 5, '2024-02-10', 2, 2.49, 0.00, 4.98, 4.98),
+(6, 6, '2024-02-10', 1, 25.99, 0.00, 25.99, 25.99),
+(7, 7, '2024-02-10', 2, 31.99, 2.00, 60.98, 60.98),
+(8, 8, '2024-02-10', 1, 6.99, 0.00, 6.99, 6.99),
+(9, 9, '2024-02-10', 3, 2.25, 0.50, 6.75, 6.75),
+(10, 10, '2024-02-10', 1, 33.99, 3.00, 30.99, 30.99);
 
 
 
