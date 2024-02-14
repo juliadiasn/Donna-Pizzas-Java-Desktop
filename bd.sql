@@ -1,7 +1,7 @@
-drop database if exists pizzaria;
-create database pizzaria;
+drop database if exists donnapizza;
+create database donnapizza;
 
-use pizzaria;
+use donnapizza;
 
 -- Cliente: id, nome, cpf, sexo, endereço(rua, numero, bairro, cidade, uf), telefone, email
 
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS cliente (
 );
 
 INSERT INTO cliente (cliente_nome, cliente_cpf, cliente_sexo, cliente_rua, cliente_numero, cliente_bairro, cliente_cidade, cliente_uf, cliente_telefone, cliente_email) 
-VALUES ('João Silva', '123.456.789-10', 'Masculino', 'Rua das Flores', '123', 'Centro', 'São Paulo', 'SP', '(11) 91234-5678', 'joao.silva@example.com'),
+VALUES ('João Silva', '123.456.780-10', 'Masculino', 'Rua das Flores', '123', 'Centro', 'São Paulo', 'SP', '(11) 90234-5678', 'joao.siilva@example.com'),
        ('Maria Souza', '987.654.321-00', 'Feminino', 'Avenida Principal', '456', 'Bela Vista', 'Rio de Janeiro', 'RJ', '(21) 98765-4321', 'maria.souza@example.com'),
        ('Pedro Oliveira', '456.789.123-20', 'Masculino', 'Rua das Palmeiras', '789', 'Jardim América', 'Belo Horizonte', 'MG', '(31) 87654-3210', 'pedro.oliveira@example.com'),
        ('Ana Santos', '159.357.852-30', 'Feminino', 'Rua da Praia', '321', 'Copacabana', 'Rio de Janeiro', 'RJ', '(21) 87654-1234', 'ana.santos@example.com'),
