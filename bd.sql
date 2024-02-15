@@ -7,19 +7,19 @@ use donnapizza;
 
 CREATE TABLE IF NOT EXISTS cliente (
     pk_id_cliente SERIAL PRIMARY KEY,
-    cliente_nome VARCHAR(400) NOT NULL,
-    cliente_cpf VARCHAR(14) NOT NULL UNIQUE,
-    cliente_sexo VARCHAR(20) NOT NULL,
-    cliente_rua VARCHAR(200) NOT NULL,
-    cliente_numero VARCHAR(10) NOT NULL,
-    cliente_bairro VARCHAR(100) NOT NULL,
-    cliente_cidade VARCHAR(100) NOT NULL,
-    cliente_uf CHAR(2) NOT NULL,
-    cliente_telefone VARCHAR(15) NOT NULL UNIQUE,
-    cliente_email VARCHAR(1000) NOT NULL UNIQUE
+    nome VARCHAR(400) NOT NULL,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    sexo VARCHAR(20) NOT NULL,
+    rua VARCHAR(200) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
+    bairro VARCHAR(100) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    uf CHAR(2) NOT NULL,
+    telefone VARCHAR(15) NOT NULL UNIQUE,
+    email VARCHAR(1000) NOT NULL UNIQUE
 );
 
-INSERT INTO cliente (cliente_nome, cliente_cpf, cliente_sexo, cliente_rua, cliente_numero, cliente_bairro, cliente_cidade, cliente_uf, cliente_telefone, cliente_email) 
+INSERT INTO cliente (nome, cpf, sexo, rua, numero, bairro, cidade, uf, telefone, email) 
 VALUES ('João Silva', '123.456.780-10', 'Masculino', 'Rua das Flores', '123', 'Centro', 'São Paulo', 'SP', '(11) 90234-5678', 'joao.siilva@example.com'),
        ('Maria Souza', '987.654.321-00', 'Feminino', 'Avenida Principal', '456', 'Bela Vista', 'Rio de Janeiro', 'RJ', '(21) 98765-4321', 'maria.souza@example.com'),
        ('Pedro Oliveira', '456.789.123-20', 'Masculino', 'Rua das Palmeiras', '789', 'Jardim América', 'Belo Horizonte', 'MG', '(31) 87654-3210', 'pedro.oliveira@example.com'),
@@ -32,61 +32,62 @@ VALUES ('João Silva', '123.456.780-10', 'Masculino', 'Rua das Flores', '123', '
        ('Laura Lima', '456.789.123-90', 'Feminino', 'Rua das Flores', '258', 'Jardim Botânico', 'Rio de Janeiro', 'RJ', '(21) 21098-7654', 'laura.lima@example.com');
 
 
--- Funcionario: id, nome, cpf, data_nascimento, sexo, endereço(rua, numero, bairro, cidade, estado), telefone, email, salario, cargo, carga_horario_semanal, usuario, senha permissao(admin ou comum), atividade( Aitvo ou Inativo)
+-- Funcionario: id, nome, cpf, data_nascimento, sexo, endereço(rua, numero, bairro, cidade, estado), telefone, email, salario, cargo, carga_horario_semanal, usuario, senha permissao(Adminin ou comum), atividade( Aitvo ou Inativo)
 
 CREATE TABLE IF NOT EXISTS funcionario (
     pk_id_funcionario SERIAL PRIMARY KEY,
-    funcionario_nome VARCHAR(300) NOT NULL,
-    funcionario_cpf VARCHAR(14) NOT NULL UNIQUE,
-    funcionario_data_nascimento DATE NOT NULL,
-    funcionario_sexo VARCHAR(20) NOT NULL,
-    funcionario_rua VARCHAR(200) NOT NULL,
-    funcionario_numero VARCHAR(10) NOT NULL,
-    funcionario_bairro VARCHAR(100) NOT NULL,
-    funcionario_cidade VARCHAR(100) NOT NULL,
-    funcionario_uf CHAR(2) NOT NULL,
-    funcionario_telefone VARCHAR(15) NOT NULL UNIQUE,
-    funcionario_email VARCHAR(1000) NOT NULL UNIQUE,
-    funcionario_salario DOUBLE(10 , 2 ) NOT NULL,
-    funcionario_cargo VARCHAR(50) NOT NULL,
-    funcionario_carga_horaria_semanal INT(2) NOT NULL,
-    funcionario_usuario VARCHAR(100) NOT NULL UNIQUE,
-    funcionario_senha VARCHAR(20) NOT NULL UNIQUE,
-    funcionario_permissao VARCHAR(5) NOT NULL,
-    funcionario_atividade VARCHAR(8) NOT NULL
+    nome VARCHAR(300) NOT NULL,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    data_nascimento DATE NOT NULL,
+    sexo VARCHAR(20) NOT NULL,
+    rua VARCHAR(200) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
+    bairro VARCHAR(100) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    uf CHAR(2) NOT NULL,
+    telefone VARCHAR(15) NOT NULL UNIQUE,
+    email VARCHAR(1000) NOT NULL UNIQUE,
+    salario DOUBLE(10 , 2 ) NOT NULL,
+    cargo VARCHAR(50) NOT NULL,
+    carga_horaria_semanal INT(2) NOT NULL,
+    usuario VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(20) NOT NULL UNIQUE,
+    permissao VARCHAR(5) NOT NULL,
+    atividade VARCHAR(8) NOT NULL
 );
 
-INSERT INTO funcionario (funcionario_nome, funcionario_cpf, funcionario_data_nascimento, funcionario_sexo, funcionario_rua, funcionario_numero, funcionario_bairro, funcionario_cidade, funcionario_uf, funcionario_telefone, funcionario_email, funcionario_salario, funcionario_cargo, funcionario_carga_horaria_semanal, funcionario_usuario, funcionario_senha, funcionario_permissao, funcionario_atividade)  
+INSERT INTO funcionario (nome, cpf, data_nascimento, sexo, rua, numero, bairro, cidade, uf, telefone, email, salario, cargo, carga_horaria_semanal, usuario, senha, permissao, atividade)  
 VALUES  
-('Carlos Oliveira', '123.456.789-11', '1990-05-15', 'Masculino', 'Rua dos Funcionários', '101', 'Centro', 'São Paulo', 'SP', '(11) 91234-5678', 'carlos.oliveira@example.com', 3000.00, 'Atendente', 40, 'carlos', 'senha103', 'USR', 'Ativo'),  
-('Ana Souza', '987.654.321-12', '1985-08-20', 'Feminino', 'Avenida Principal', '202', 'Bela Vista', 'Rio de Janeiro', 'RJ', '(21) 98765-4321', 'ana.souza@example.com', 3500.00, 'Cozinheiro', 35, 'ana', 'senha56', 'USR', 'Ativo'),  
-('Pedro Santos', '456.789.123-23', '1988-02-10', 'Masculino', 'Rua das Palmeiras', '303', 'Jardim América', 'Belo Horizonte', 'MG', '(31) 87654-3210', 'pedro.santos@example.com', 2800.00, 'Entregador', 38, 'pedro', 'senha789', 'USR', 'Ativo'),  
-('Mariana Silva', '159.357.852-34', '1992-11-25', 'Feminino', 'Rua da Praia', '404', 'Copacabana', 'Rio de Janeiro', 'RJ', '(21) 87654-1234', 'mariana.silva@example.com', 3200.00, 'Gerente', 42, 'mariana', 'senhaabc', 'ADM', 'Ativo'),  
-('João Pereira', '753.951.846-45', '1983-07-30', 'Masculino', 'Avenida Central', '505', 'Centro', 'São Paulo', 'SP', '(11) 76543-2109', 'joao.pereira@example.com', 3800.00, 'Cozinheiro', 40, 'joao', 'senha456', 'USR', 'Ativo'),  
-('Fernanda Costa', '369.258.147-56', '1995-04-12', 'Feminino', 'Rua das Pedras', '606', 'Laranjeiras', 'Rio de Janeiro', 'RJ', '(21) 65432-1098', 'fernanda.costa@example.com', 3000.00, 'Entregador', 40, 'fernanda', 'senha709', 'USR', 'Ativo'),  
-('Lucas Oliveira', '852.147.963-67', '1987-09-05', 'Masculino', 'Avenida da Liberdade', '707', 'Barra da Tijuca', 'Rio de Janeiro', 'RJ', '(21) 54321-0987', 'lucas.oliveira@example.com', 3200.00, 'Cozinheiro', 35, 'lucas', 'senha123', 'USR', 'Ativo'),  
-('Camila Fernandes', '753.159.852-78', '1990-12-18', 'Feminino', 'Rua do Comércio', '808', 'Centro', 'São Paulo', 'SP', '(11) 43210-9876', 'camila.fernandes@example.com', 3500.00, 'Atendente', 38, 'camila', 'senhabc', 'USR', 'Ativo'),  
-('Gustavo Rodrigues', '369.852.741-89', '1982-03-28', 'Masculino', 'Avenida Paulista', '909', 'Bela Vista', 'São Paulo', 'SP', '(11) 32109-8765', 'gustavo.rodrigues@example.com', 4000.00, 'Gerente', 42, 'gustavo', 'senha79', 'USR', 'Ativo'),  
-('Laura Lima', '456.789.123-90', '1989-06-22', 'Feminino', 'Rua das Flores', '1010', 'Jardim Botânico', 'Rio de Janeiro', 'RJ', '(21) 21098-7654', 'laura.lima@example.com', 3300.00, 'Atendente', 40, 'laura', 'senha13', 'USR', 'Ativo');
+('Julia Dias', '999-089-092-10', '2006-04-03', 'Feminino', 'Rua verdes', '198', 'Alvorada', 'Pedra Azul', 'MG', '(22) 99822-0989', 'juliadias@gmail.com', 6000.00, 'Admininistrador', 50, 'admin', 'admin', 'Alto', 'Ativo'),
+('Carlos Oliveira', '123.456.789-11', '1990-05-15', 'Masculino', 'Rua dos Funcionários', '101', 'Centro', 'São Paulo', 'SP', '(11) 91234-5678', 'carlos.oliveira@example.com', 3000.00, 'Atendente', 40, 'carlos', 'senha103', 'Médio', 'Ativo'),  
+('Ana Souza', '987.654.321-12', '1985-08-20', 'Feminino', 'Avenida Principal', '202', 'Bela Vista', 'Rio de Janeiro', 'RJ', '(21) 98765-4321', 'ana.souza@example.com', 3500.00, 'Cozinheiro', 35, 'ana', 'senha56', 'Baixo', 'Ativo'),  
+('Pedro Santos', '456.789.123-23', '1988-02-10', 'Masculino', 'Rua das Palmeiras', '303', 'Jardim América', 'Belo Horizonte', 'MG', '(31) 87654-3210', 'pedro.santos@example.com', 2800.00, 'Entregador', 38, 'pedro', 'senha789', 'Baixo', 'Ativo'),  
+('Mariana Silva', '159.357.852-34', '1992-11-25', 'Feminino', 'Rua da Praia', '404', 'Copacabana', 'Rio de Janeiro', 'RJ', '(21) 87654-1234', 'mariana.silva@example.com', 3200.00, 'Gerente', 42, 'mariana', 'senhaabc', 'Alto', 'Ativo'),  
+('João Pereira', '753.951.846-45', '1983-07-30', 'Masculino', 'Avenida Central', '505', 'Centro', 'São Paulo', 'SP', '(11) 76543-2109', 'joao.pereira@example.com', 3800.00, 'Cozinheiro', 40, 'joao', 'senha456', 'Baixo', 'Ativo'),  
+('Fernanda Costa', '369.258.147-56', '1995-04-12', 'Feminino', 'Rua das Pedras', '606', 'Laranjeiras', 'Rio de Janeiro', 'RJ', '(21) 65432-1098', 'fernanda.costa@example.com', 3000.00, 'Entregador', 40, 'fernanda', 'senha709', 'Baixo', 'Ativo'),  
+('Lucas Oliveira', '852.147.963-67', '1987-09-05', 'Masculino', 'Avenida da Liberdade', '707', 'Barra da Tijuca', 'Rio de Janeiro', 'RJ', '(21) 54321-0987', 'lucas.oliveira@example.com', 3200.00, 'Cozinheiro', 35, 'lucas', 'senha123', 'Baixo', 'Ativo'),  
+('Camila Fernandes', '753.159.852-78', '1990-12-18', 'Feminino', 'Rua do Comércio', '808', 'Centro', 'São Paulo', 'SP', '(11) 43210-9876', 'camila.fernandes@example.com', 3500.00, 'Atendente', 38, 'camila', 'senhabc', 'Médio', 'Ativo'),  
+('Gustavo Rodrigues', '369.852.741-89', '1982-03-28', 'Masculino', 'Avenida Paulista', '909', 'Bela Vista', 'São Paulo', 'SP', '(11) 32109-8765', 'gustavo.rodrigues@example.com', 4000.00, 'Gerente', 42, 'gustavo', 'senha79', 'Alto', 'Ativo'),  
+('Laura Lima', '456.789.123-90', '1989-06-22', 'Feminino', 'Rua das Flores', '1010', 'Jardim Botânico', 'Rio de Janeiro', 'RJ', '(21) 21098-7654', 'laura.lima@example.com', 3300.00, 'Atendente', 40, 'laura', 'senha13', 'Médio', 'Ativo');
 
 
 -- Fornecedor: id, nome_empresa, cnpj, endereço(rua, numero, bairro, cidade, estado, pais), telefone, email
 
 CREATE TABLE IF NOT EXISTS fornecedor (
     pk_id_fornecedor SERIAL PRIMARY KEY,
-    fornecedor_nome_empresa VARCHAR(500) NOT NULL,
-    fornecedor_cnpj VARCHAR(16) NOT NULL UNIQUE,
-    fornecedor_rua VARCHAR(200) NOT NULL,
-    fornecedor_numero VARCHAR(10) NOT NULL,
-    fornecedor_bairro VARCHAR(100) NOT NULL,
-    fornecedor_cidade VARCHAR(100) NOT NULL,
-    fornecedor_uf CHAR(2) NOT NULL DEFAULT 'XX',
-    fornecedor_pais VARCHAR(50) NOT NULL,
-    fornecedor_telefone VARCHAR(15) NOT NULL UNIQUE,
-    fornecedor_email VARCHAR(1000) NOT NULL UNIQUE
+    nome_empresa VARCHAR(500) NOT NULL,
+    cnpj VARCHAR(16) NOT NULL UNIQUE,
+    rua VARCHAR(200) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
+    bairro VARCHAR(100) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    uf CHAR(2) NOT NULL DEFAULT 'XX',
+    pais VARCHAR(50) NOT NULL,
+    telefone VARCHAR(15) NOT NULL UNIQUE,
+    email VARCHAR(1000) NOT NULL UNIQUE
 );
 
-INSERT INTO fornecedor (fornecedor_nome_empresa, fornecedor_cnpj, fornecedor_rua, fornecedor_numero, fornecedor_bairro, fornecedor_cidade, fornecedor_uf, fornecedor_pais, fornecedor_telefone, fornecedor_email) 
+INSERT INTO fornecedor (nome_empresa, cnpj, rua, numero, bairro, cidade, uf, pais, telefone, email) 
 VALUES 
 ('Sabor Natural Alimentos Ltda', '12345678901234', 'Rua das Flores', '123', 'Centro', 'São Paulo', 'SP', 'Brasil', '(11) 91234-5678', 'contato@sabornatural.com'),
 ('Verde Vivo Alimentos S.A.', '98765432109876', 'Avenida Principal', '456', 'Bela Vista', 'Rio de Janeiro', 'RJ', 'Brasil', '(21) 98765-4321', 'contato@verdevivo.com'),
@@ -114,10 +115,10 @@ VALUES
 
 CREATE TABLE IF NOT EXISTS categoria (
     pk_id_categoria SERIAL PRIMARY KEY,
-    categoria_descricao VARCHAR(20) NOT NULL
+    descricao VARCHAR(20) NOT NULL
 );
 
-insert into categoria (categoria_descricao)
+insert into categoria (descricao)
 values 
 ('Bebida'),
 ('Doce'),
@@ -128,9 +129,9 @@ values
 
 CREATE TABLE produto (
     pk_id_produto SERIAL PRIMARY KEY,
-    produto_nome VARCHAR(100) NOT NULL,
-    produto_preco DOUBLE(7,2) NOT NULL,
-    produto_quantidade INT NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    preco DOUBLE(7,2) NOT NULL,
+    quantidade INT NOT NULL,
     fk_categoria BIGINT UNSIGNED NOT NULL,
     fk_fornecedor BIGINT UNSIGNED NOT NULL,
     FOREIGN KEY (fk_categoria)
@@ -139,7 +140,7 @@ CREATE TABLE produto (
         REFERENCES fornecedor (pk_id_fornecedor)
 );
 
-INSERT INTO produto (produto_nome, produto_preco, produto_quantidade, fk_categoria, fk_fornecedor) 
+INSERT INTO produto (nome, preco, quantidade, fk_categoria, fk_fornecedor) 
 VALUES 
 ('Pizza Margherita', 29.99, 50, 3, 1),
 ('Coca-Cola 2L', 7.99, 100, 1, 2),
@@ -168,18 +169,18 @@ CREATE TABLE compra (
     pk_id_compra SERIAL PRIMARY KEY,
     fk_fornecedor BIGINT UNSIGNED NOT NULL,
     fk_funcionario BIGINT UNSIGNED NOT NULL,
-    compra_data DATE NOT NULL,
-    compra_forma_pagamento VARCHAR(20) NOT NULL,
-    compra_desconto DOUBLE(5 , 2 ) NOT NULL,
-    compra_valor_liquido DOUBLE(10 , 2 ) UNSIGNED NOT NULL,
-    compra_valor_bruto DOUBLE(10 , 2 ) UNSIGNED NOT NULL,
+    data DATE NOT NULL,
+    forma_pagamento VARCHAR(20) NOT NULL,
+    desconto DOUBLE(5 , 2 ) NOT NULL,
+    valor_liquido DOUBLE(10 , 2 ) UNSIGNED NOT NULL,
+    valor_bruto DOUBLE(10 , 2 ) UNSIGNED NOT NULL,
     FOREIGN KEY (fk_fornecedor)
         REFERENCES fornecedor (pk_id_fornecedor),
     FOREIGN KEY (fk_funcionario)
         REFERENCES funcionario (pk_id_funcionario)
 );
 
-INSERT INTO compra (fk_fornecedor, fk_funcionario, compra_data, compra_forma_pagamento, compra_desconto, compra_valor_liquido, compra_valor_bruto) 
+INSERT INTO compra (fk_fornecedor, fk_funcionario, data, forma_pagamento, desconto, valor_liquido, valor_bruto) 
 VALUES 
 (1, 1, '2024-02-10', 'Cartão de crédito', 5.00, 95.00, 100.00),
 (2, 2, '2024-02-11', 'Dinheiro', 0.00, 500.00, 500.00),
@@ -193,17 +194,17 @@ VALUES
 (10, 10, '2024-02-19', 'Dinheiro', 8.50, 191.50, 200.00);
 
 
--- Item_Compra: id, id_compra, id_produto, quant_produto, preco_custo, desconto, valor_liquido, valor_bruto
+-- Item_Compra: id, id_compra, id_produto, quant_produto, preco_custo, desconto, valor_bruto
 
 CREATE TABLE item_compra (
-    pk_id_item_compra SERIAL NOT NULL,
+    pk_id_compra SERIAL NOT NULL,
     fk_compra BIGINT UNSIGNED NOT NULL,
     fk_produto BIGINT UNSIGNED NOT NULL,
-    item_compra_data DATE NOT NULL,
-    item_compra_quantidade_produto INT UNSIGNED NOT NULL,
-    item_compra_preco_custo DOUBLE(7 , 2 ) NOT NULL,
-    item_compra_desconto DOUBLE(5 , 2 ) NOT NULL,
-    item_compra_valor_bruto DOUBLE(10 , 2 ) UNSIGNED NOT NULL,
+    data DATE NOT NULL,
+    quantidade_produto INT UNSIGNED NOT NULL,
+    preco_custo DOUBLE(7 , 2 ) NOT NULL,
+    desconto DOUBLE(5 , 2 ) NOT NULL,
+    valor_bruto DOUBLE(10 , 2 ) UNSIGNED NOT NULL,
     FOREIGN KEY (fk_compra)
         REFERENCES compra (pk_id_compra),
     FOREIGN KEY (fk_produto)
@@ -211,7 +212,7 @@ CREATE TABLE item_compra (
 );
 
 
-INSERT INTO item_compra (fk_compra, fk_produto, item_compra_quantidade_produto, item_compra_preco_custo, item_compra_desconto, item_compra_valor_bruto)
+INSERT INTO item_compra (fk_compra, fk_produto, quantidade_produto, preco_custo, desconto, valor_bruto)
 VALUES 
 (1, 1, 5, 10.00, 2.00, 50.00),
 (2, 2, 3, 15.00, 1.50, 45.00),
@@ -230,18 +231,18 @@ CREATE TABLE pedido (
     pk_id_pedido SERIAL PRIMARY KEY,
     fk_cliente BIGINT UNSIGNED NOT NULL,
     fk_funcionario BIGINT UNSIGNED NOT NULL,
-    pedido_data DATE NOT NULL,
-    pedido_forma_pagamento VARCHAR(20) NOT NULL,
-    pedido_desconto DOUBLE(5 , 2 ) NOT NULL,
-    pedido_valor_liquido DOUBLE(10 , 2 ) UNSIGNED NOT NULL,
-    pedido_valor_bruto DOUBLE(10 , 2 ) UNSIGNED NOT NULL,
+    data DATE NOT NULL,
+    forma_pagamento VARCHAR(20) NOT NULL,
+    desconto DOUBLE(5 , 2 ) NOT NULL,
+    valor_liquido DOUBLE(10 , 2 ) UNSIGNED NOT NULL,
+    valor_bruto DOUBLE(10 , 2 ) UNSIGNED NOT NULL,
     FOREIGN KEY (fk_cliente)
         REFERENCES cliente (pk_id_cliente),
     FOREIGN KEY (fk_funcionario)
         REFERENCES funcionario (pk_id_funcionario)
 );
 
-INSERT INTO pedido (fk_cliente, fk_funcionario, pedido_data, pedido_forma_pagamento, pedido_desconto, pedido_valor_liquido, pedido_valor_bruto) 
+INSERT INTO pedido (fk_cliente, fk_funcionario, data, forma_pagamento, desconto, valor_liquido, valor_bruto) 
 VALUES 
 (1, 1, '2024-02-10', 'Cartão de Crédito', 5.00, 100.00, 95.00),
 (2, 2, '2024-02-10', 'Dinheiro', 0.00, 50.00, 50.00),
@@ -255,25 +256,25 @@ VALUES
 (10, 10, '2024-02-10', 'Cartão de Crédito', 8.00, 110.00, 102.00);
 
 
--- Item_Pedido: id, id_pedido, id_produto, data, quant, precoun, desconto, valor_liquido, valor_bruto
+-- Item_Pedido: id, id_pedido, id_produto, data, quant, precoun, desconto, valor_bruto
 
 
 CREATE TABLE item_pedido (
-    pk_id_item_pedido SERIAL PRIMARY KEY,
+    pk_id_pedido SERIAL PRIMARY KEY,
     fk_pedido BIGINT UNSIGNED NOT NULL,
     fk_produto BIGINT UNSIGNED NOT NULL,
-    item_pedido_data DATE NOT NULL,
-    item_pedido_quantidade INT NOT NULL,
-    item_pedido_preco_un DOUBLE(7 , 2 ) NOT NULL,
-    item_pedido_desconto DOUBLE(5 , 2 ) NOT NULL,
-    item_pedido_valor_bruto DOUBLE(10 , 2 ) NOT NULL,
+    data DATE NOT NULL,
+    quantidade INT NOT NULL,
+    preco_un DOUBLE(7 , 2 ) NOT NULL,
+    desconto DOUBLE(5 , 2 ) NOT NULL,
+    valor_bruto DOUBLE(10 , 2 ) NOT NULL,
     FOREIGN KEY (fk_pedido)
         REFERENCES pedido (pk_id_pedido),
     FOREIGN KEY (fk_produto)
         REFERENCES produto (pk_id_produto)
 );
 
-INSERT INTO item_pedido (fk_pedido, fk_produto, item_pedido_data, item_pedido_quantidade, item_pedido_preco_un, item_pedido_desconto, item_pedido_valor_bruto) 
+INSERT INTO item_pedido (fk_pedido, fk_produto, data, quantidade, preco_un, desconto, valor_bruto) 
 VALUES 
 (1, 1, '2024-02-10', 2, 14.99, 0.00, 29.98),
 (2, 2, '2024-02-10', 1, 7.99, 0.00,  7.99),
@@ -285,7 +286,6 @@ VALUES
 (8, 8, '2024-02-10', 1, 6.99, 0.00,  6.99),
 (9, 9, '2024-02-10', 3, 2.25, 0.50,  6.75),
 (10, 10, '2024-02-10', 1, 33.99, 3.00, 30.99);
-
 
 
 

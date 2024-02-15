@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 package connection;
 
 import java.sql.ResultSet;
@@ -54,9 +49,9 @@ public class ConnectionFactory {
         }
     }
 
-    public static void closeConnection(Connection con, PreparedStatement stmt, ResultSet rs) {
+    public static void closeConnection(Connection con, PreparedStatement pstm, ResultSet rs) {
 
-        closeConnection(con, stmt);
+        closeConnection(con, pstm);
 
         try {
 
