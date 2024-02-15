@@ -1,66 +1,58 @@
 package connection;
 
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ConnectionFactory {
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/donnapizza";
+    private static final String URL = "jdbc:mysql://localhost:3306/donnapizza?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
-    private static final String PASS = "";
+    private static final String PASSWORD = "your_password_here";
 
-    public static Connection getConnection() {
-        try {
-            Class.forName(DRIVER);
-
-            return DriverManager.getConnection(URL, USER, PASS);
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new RuntimeException("Erro na conexão: ", ex);
-        }
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
     public static void closeConnection(Connection con) {
-
-        try {
-            if (con != null) {
+        if (con != null) {
+            try {
                 con.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public static void closeConnection(Connection con, PreparedStatement stmt) {
-
+        closeStatement(stmt);
         closeConnection(con);
+    }
 
-        try {
-            if (stmt != null) {
+    public static void closeConnection(Connection con, PreparedStatement stmt, ResultSet rs) {
+        closeResultSet(rs);
+        closeStatement(stmt);
+        closeConnection(con);
+    }
+
+    private static void closeStatement(PreparedStatement stmt) {
+        if (stmt != null) {
+            try {
                 stmt.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing statement: " + e.getMessage());
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static void closeConnection(Connection con, PreparedStatement pstm, ResultSet rs) {
-
-        closeConnection(con, pstm);
-
-        try {
-
-            if (rs != null) {
+    private static void closeResultSet(ResultSet rs) {
+        if (rs != null) {
+            try {
                 rs.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing result set: " + e.getMessage());
             }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
