@@ -58,17 +58,17 @@ CREATE TABLE IF NOT EXISTS funcionario (
 
 INSERT INTO funcionario (nome, cpf, data_nascimento, sexo, rua, numero, bairro, cidade, uf, telefone, email, salario, cargo, carga_horaria_semanal, usuario, senha, permissao, atividade)  
 VALUES  
-('Julia Dias', '999-089-092-10', '2006-04-03', 'Feminino', 'Rua verdes', '198', 'Alvorada', 'Pedra Azul', 'MG', '(22) 99822-0989', 'juliadias@gmail.com', 6000.00, 'Admininistrador', 50, 'admin', 'admin', 'Alto', 'Ativo'),
-('Carlos Oliveira', '123.456.789-11', '1990-05-15', 'Masculino', 'Rua dos Funcionários', '101', 'Centro', 'São Paulo', 'SP', '(11) 91234-5678', 'carlos.oliveira@example.com', 3000.00, 'Atendente', 40, 'carlos', 'senha103', 'Médio', 'Ativo'),  
-('Ana Souza', '987.654.321-12', '1985-08-20', 'Feminino', 'Avenida Principal', '202', 'Bela Vista', 'Rio de Janeiro', 'RJ', '(21) 98765-4321', 'ana.souza@example.com', 3500.00, 'Cozinheiro', 35, 'ana', 'senha56', 'Baixo', 'Ativo'),  
-('Pedro Santos', '456.789.123-23', '1988-02-10', 'Masculino', 'Rua das Palmeiras', '303', 'Jardim América', 'Belo Horizonte', 'MG', '(31) 87654-3210', 'pedro.santos@example.com', 2800.00, 'Entregador', 38, 'pedro', 'senha789', 'Baixo', 'Ativo'),  
-('Mariana Silva', '159.357.852-34', '1992-11-25', 'Feminino', 'Rua da Praia', '404', 'Copacabana', 'Rio de Janeiro', 'RJ', '(21) 87654-1234', 'mariana.silva@example.com', 3200.00, 'Gerente', 42, 'mariana', 'senhaabc', 'Alto', 'Ativo'),  
-('João Pereira', '753.951.846-45', '1983-07-30', 'Masculino', 'Avenida Central', '505', 'Centro', 'São Paulo', 'SP', '(11) 76543-2109', 'joao.pereira@example.com', 3800.00, 'Cozinheiro', 40, 'joao', 'senha456', 'Baixo', 'Ativo'),  
-('Fernanda Costa', '369.258.147-56', '1995-04-12', 'Feminino', 'Rua das Pedras', '606', 'Laranjeiras', 'Rio de Janeiro', 'RJ', '(21) 65432-1098', 'fernanda.costa@example.com', 3000.00, 'Entregador', 40, 'fernanda', 'senha709', 'Baixo', 'Ativo'),  
-('Lucas Oliveira', '852.147.963-67', '1987-09-05', 'Masculino', 'Avenida da Liberdade', '707', 'Barra da Tijuca', 'Rio de Janeiro', 'RJ', '(21) 54321-0987', 'lucas.oliveira@example.com', 3200.00, 'Cozinheiro', 35, 'lucas', 'senha123', 'Baixo', 'Ativo'),  
-('Camila Fernandes', '753.159.852-78', '1990-12-18', 'Feminino', 'Rua do Comércio', '808', 'Centro', 'São Paulo', 'SP', '(11) 43210-9876', 'camila.fernandes@example.com', 3500.00, 'Atendente', 38, 'camila', 'senhabc', 'Médio', 'Ativo'),  
-('Gustavo Rodrigues', '369.852.741-89', '1982-03-28', 'Masculino', 'Avenida Paulista', '909', 'Bela Vista', 'São Paulo', 'SP', '(11) 32109-8765', 'gustavo.rodrigues@example.com', 4000.00, 'Gerente', 42, 'gustavo', 'senha79', 'Alto', 'Ativo'),  
-('Laura Lima', '456.789.123-90', '1989-06-22', 'Feminino', 'Rua das Flores', '1010', 'Jardim Botânico', 'Rio de Janeiro', 'RJ', '(21) 21098-7654', 'laura.lima@example.com', 3300.00, 'Atendente', 40, 'laura', 'senha13', 'Médio', 'Ativo');
+('Julia Dias', '999-089-092-10', '2006-04-03', 'Feminino', 'Rua verdes', '198', 'Alvorada', 'Pedra Azul', 'MG', '(22) 99822-0989', 'juliadias@gmail.com', 6000.00, 'Admininistrador', 50, 'admin', 'admin', 'Admin', 'Ativo'),
+('Carlos Oliveira', '123.456.789-11', '1990-05-15', 'Masculino', 'Rua dos Funcionários', '101', 'Centro', 'São Paulo', 'SP', '(11) 91234-5678', 'carlos.oliveira@example.com', 3000.00, 'Atendente', 40, 'carlos', 'senha103', 'Comum', 'Ativo'),  
+('Ana Souza', '987.654.321-12', '1985-08-20', 'Feminino', 'Avenida Principal', '202', 'Bela Vista', 'Rio de Janeiro', 'RJ', '(21) 98765-4321', 'ana.souza@example.com', 3500.00, 'Cozinheiro', 35, 'ana', 'senha56', 'Comum', 'Ativo'),  
+('Pedro Santos', '456.789.123-23', '1988-02-10', 'Masculino', 'Rua das Palmeiras', '303', 'Jardim América', 'Belo Horizonte', 'MG', '(31) 87654-3210', 'pedro.santos@example.com', 2800.00, 'Entregador', 38, 'pedro', 'senha789', 'Comum', 'Ativo'),  
+('Mariana Silva', '159.357.852-34', '1992-11-25', 'Feminino', 'Rua da Praia', '404', 'Copacabana', 'Rio de Janeiro', 'RJ', '(21) 87654-1234', 'mariana.silva@example.com', 3200.00, 'Gerente', 42, 'mariana', 'senhaabc', 'Admin', 'Ativo'),  
+('João Pereira', '753.951.846-45', '1983-07-30', 'Masculino', 'Avenida Central', '505', 'Centro', 'São Paulo', 'SP', '(11) 76543-2109', 'joao.pereira@example.com', 3800.00, 'Cozinheiro', 40, 'joao', 'senha456', 'Comum', 'Ativo'),  
+('Fernanda Costa', '369.258.147-56', '1995-04-12', 'Feminino', 'Rua das Pedras', '606', 'Laranjeiras', 'Rio de Janeiro', 'RJ', '(21) 65432-1098', 'fernanda.costa@example.com', 3000.00, 'Entregador', 40, 'fernanda', 'senha709', 'Comum', 'Ativo'),  
+('Lucas Oliveira', '852.147.963-67', '1987-09-05', 'Masculino', 'Avenida da Liberdade', '707', 'Barra da Tijuca', 'Rio de Janeiro', 'RJ', '(21) 54321-0987', 'lucas.oliveira@example.com', 3200.00, 'Cozinheiro', 35, 'lucas', 'senha123', 'Comum', 'Ativo'),  
+('Camila Fernandes', '753.159.852-78', '1990-12-18', 'Feminino', 'Rua do Comércio', '808', 'Centro', 'São Paulo', 'SP', '(11) 43210-9876', 'camila.fernandes@example.com', 3500.00, 'Atendente', 38, 'camila', 'senhabc', 'Comum', 'Ativo'),  
+('Gustavo Rodrigues', '369.852.741-89', '1982-03-28', 'Masculino', 'Avenida Paulista', '909', 'Bela Vista', 'São Paulo', 'SP', '(11) 32109-8765', 'gustavo.rodrigues@example.com', 4000.00, 'Gerente', 42, 'gustavo', 'senha79', 'Admin', 'Inativo'),  
+('Laura Lima', '456.789.123-90', '1989-06-22', 'Feminino', 'Rua das Flores', '1010', 'Jardim Botânico', 'Rio de Janeiro', 'RJ', '(21) 21098-7654', 'laura.lima@example.com', 3300.00, 'Atendente', 40, 'laura', 'senha13', 'Comum', 'Ativo');
 
 
 -- Fornecedor: id, nome_empresa, cnpj, endereço(rua, numero, bairro, cidade, estado, pais), telefone, email
