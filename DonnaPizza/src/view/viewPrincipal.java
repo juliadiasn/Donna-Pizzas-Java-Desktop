@@ -9,10 +9,11 @@ public class viewPrincipal extends javax.swing.JFrame {
 
     public viewPrincipal() {
         initComponents();
+        //setExtendedState(MAXIMIZED_BOTH);
 
         // Adicione este código logo após a inicialização do JDesktopPane no método initComponents()
 // Carregar a imagem de fundo
-        ImageIcon backgroundImage = new ImageIcon(getClass().getResource("/images/others/bg-principal.jpg"));
+        ImageIcon backgroundImage = new ImageIcon(getClass().getResource("/images/others/bg-principal.png"));
         // Substitua pelo caminho da sua imagem
 
 // Criar um JLabel com a imagem de fundo
@@ -31,8 +32,6 @@ public class viewPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopPane = new javax.swing.JDesktopPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jmbMenu = new javax.swing.JMenuBar();
         jmSistema = new javax.swing.JMenu();
         jmiTrocarUsuario = new javax.swing.JMenuItem();
@@ -52,32 +51,23 @@ public class viewPrincipal extends javax.swing.JFrame {
         jmiCompras = new javax.swing.JMenuItem();
         jmRelatorio = new javax.swing.JMenu();
         jmiFazerRelatorio = new javax.swing.JMenuItem();
-        jmPdv = new javax.swing.JMenu();
-        jmiAbrirPdv = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setTitle("Donna Pizza");
+        setMaximumSize(new java.awt.Dimension(1350, 720));
+        setMinimumSize(new java.awt.Dimension(1350, 720));
+        setPreferredSize(new java.awt.Dimension(1350, 720));
 
         javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
         desktopPane.setLayout(desktopPaneLayout);
         desktopPaneLayout.setHorizontalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
+            .addGap(0, 1948, Short.MAX_VALUE)
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 693, Short.MAX_VALUE)
         );
-
-        getContentPane().add(desktopPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 790, 524));
-
-        jPanel1.setPreferredSize(new java.awt.Dimension(100, 530));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/others/principal-panel.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 100, 540));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jmSistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/sistema.png"))); // NOI18N
         jmSistema.setText("Sistema");
@@ -174,19 +164,22 @@ public class viewPrincipal extends javax.swing.JFrame {
 
         jmbMenu.add(jmRelatorio);
 
-        jmPdv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/pdv.png"))); // NOI18N
-        jmPdv.setText("PDV");
-        jmPdv.setEnabled(false);
-
-        jmiAbrirPdv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/pdv.png"))); // NOI18N
-        jmiAbrirPdv.setText("Abrir PDV");
-        jmPdv.add(jmiAbrirPdv);
-
-        jmbMenu.add(jmPdv);
-
         setJMenuBar(jmbMenu);
 
-        setSize(new java.awt.Dimension(900, 553));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(desktopPane)
+        );
+
+        setSize(new java.awt.Dimension(1200, 720));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -223,17 +216,13 @@ public class viewPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu jmCadastros;
     public static javax.swing.JMenu jmCompra;
     public static javax.swing.JMenu jmEstoque;
-    public static javax.swing.JMenu jmPdv;
     public static javax.swing.JMenu jmRelatorio;
     private javax.swing.JMenu jmSistema;
     private javax.swing.JMenu jmVenda;
     private javax.swing.JMenuBar jmbMenu;
-    private javax.swing.JMenuItem jmiAbrirPdv;
     private javax.swing.JMenuItem jmiCategorias;
     private javax.swing.JMenuItem jmiClientes;
     private javax.swing.JMenuItem jmiCompras;

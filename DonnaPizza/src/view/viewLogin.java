@@ -205,7 +205,6 @@ public class viewLogin extends javax.swing.JFrame {
                 viewPrincipal.jmiVendas.setEnabled(true);
                 viewPrincipal.jmCompra.setEnabled(true);
                 viewPrincipal.jmRelatorio.setEnabled(true);
-                viewPrincipal.jmPdv.setEnabled(true);
 
                 this.dispose();
 
