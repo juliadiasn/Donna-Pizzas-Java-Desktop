@@ -26,7 +26,7 @@ public class viewLogin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jtfUsuario = new javax.swing.JTextField();
         jpsSenha = new javax.swing.JPasswordField();
-        jbEntrar = new javax.swing.JButton();
+        jbAcessar = new javax.swing.JButton();
         img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,6 +39,7 @@ public class viewLogin extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jtfUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtfUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jtfUsuarioMousePressed(evt);
@@ -51,6 +52,7 @@ public class viewLogin extends javax.swing.JFrame {
         });
         jPanel1.add(jtfUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 190, -1));
 
+        jpsSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jpsSenha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jpsSenhaMousePressed(evt);
@@ -63,17 +65,18 @@ public class viewLogin extends javax.swing.JFrame {
         });
         jPanel1.add(jpsSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 190, -1));
 
-        jbEntrar.setBackground(new java.awt.Color(227, 21, 21));
-        jbEntrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jbEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        jbEntrar.setText("Entrar");
-        jbEntrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jbEntrar.addActionListener(new java.awt.event.ActionListener() {
+        jbAcessar.setBackground(new java.awt.Color(227, 21, 21));
+        jbAcessar.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jbAcessar.setForeground(new java.awt.Color(255, 255, 255));
+        jbAcessar.setText("Acessar");
+        jbAcessar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbAcessar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbAcessar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEntrarActionPerformed(evt);
+                jbAcessarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 283, 110, 30));
+        jPanel1.add(jbAcessar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 283, 110, 30));
 
         img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/others/donna-bg-login.png"))); // NOI18N
         jPanel1.add(img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 620, 410));
@@ -92,9 +95,9 @@ public class viewLogin extends javax.swing.JFrame {
         logar();
     }//GEN-LAST:event_jpsSenhaActionPerformed
 
-    private void jbEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarActionPerformed
+    private void jbAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAcessarActionPerformed
         logar();
-    }//GEN-LAST:event_jbEntrarActionPerformed
+    }//GEN-LAST:event_jbAcessarActionPerformed
 
     private void jtfUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtfUsuarioMousePressed
         if (jtfUsuario.getText().equals("Digite o usuário")) {
@@ -136,7 +139,7 @@ public class viewLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel img;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jbEntrar;
+    private javax.swing.JButton jbAcessar;
     private javax.swing.JPasswordField jpsSenha;
     private javax.swing.JTextField jtfUsuario;
     // End of variables declaration//GEN-END:variables
