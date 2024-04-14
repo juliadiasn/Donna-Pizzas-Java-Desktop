@@ -11,7 +11,7 @@ public class ModelFuncionario {
     private String numero;
     private String bairro;
     private String cidade;
-    private char uf;
+    private String uf;
     private String telefone;
     private String email;
     private double salario;
@@ -34,7 +34,7 @@ public class ModelFuncionario {
             String numero,
             String bairro,
             String cidade,
-            char uf,
+            String uf,
             String telefone,
             String email,
             double salario,
@@ -137,11 +137,11 @@ public class ModelFuncionario {
         this.cidade = cidade;
     }
 
-    public char getUf() {
+    public String getUf() {
         return uf;
     }
 
-    public void setUf(char uf) {
+    public void setUf(String uf) {
         this.uf = uf;
     }
 

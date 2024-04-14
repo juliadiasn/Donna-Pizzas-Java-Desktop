@@ -6,10 +6,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class viewPrincipal extends javax.swing.JFrame {
-
+    
     public viewPrincipal() {
         initComponents();
-        //setExtendedState(MAXIMIZED_BOTH);
+        setExtendedState(MAXIMIZED_BOTH);
 
         // Adicione este código logo após a inicialização do JDesktopPane no método initComponents()
 // Carregar a imagem de fundo
@@ -24,9 +24,9 @@ public class viewPrincipal extends javax.swing.JFrame {
 
 // Colocar o JLabel no JLayeredPane do JDesktopPane
         desktopPane.add(backgroundLabel, Integer.valueOf(Integer.MIN_VALUE));
-
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -109,6 +109,11 @@ public class viewPrincipal extends javax.swing.JFrame {
         jmiFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/funcionario.png"))); // NOI18N
         jmiFuncionarios.setText("Funcionários");
         jmiFuncionarios.setEnabled(false);
+        jmiFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiFuncionariosActionPerformed(evt);
+            }
+        });
         jmCadastros.add(jmiFuncionarios);
 
         jmbMenu.add(jmCadastros);
@@ -199,19 +204,35 @@ public class viewPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiTrocarUsuarioActionPerformed
 
     private void jmiSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiSairMousePressed
-                String[] options = {"Sair", "Cancelar"}; // Textos personalizados dos botões
+        String[] options = {"Sair", "Cancelar"}; // Textos personalizados dos botões
 
         int confirmarSaida = JOptionPane.showOptionDialog(
                 this, "Tem certeza que deseja fechar o sistema?", "Confirmação", JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, options, options[0]
         );
         
-         if (confirmarSaida == JOptionPane.YES_OPTION) {
-         
-             System.exit(0);
-             
-         }
+        if (confirmarSaida == JOptionPane.YES_OPTION) {
+            
+            System.exit(0);
+            
+        }
     }//GEN-LAST:event_jmiSairMousePressed
+
+    private void jmiFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiFuncionariosActionPerformed
+        
+        try {
+            viewFuncionario objViewFuncionario = new viewFuncionario();
+            objViewFuncionario.setVisible(true);
+            desktopPane.add(objViewFuncionario);
+            objViewFuncionario.requestFocus();
+            
+        } catch (Exception e) {
+            
+            System.out.println(e.getMessage());
+        }
+        
+
+    }//GEN-LAST:event_jmiFuncionariosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
