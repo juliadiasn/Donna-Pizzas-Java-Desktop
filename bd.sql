@@ -3,13 +3,13 @@ create database donnapizza;
 
 use donnapizza;
 
--- Cliente: id, nome, cpf, sexo, endereço(rua, numero, bairro, cidade, uf), telefone, email
+-- Cliente: id, nome, cpf, genero, endereço(rua, numero, bairro, cidade, uf), telefone, email
 
 CREATE TABLE IF NOT EXISTS cliente (
     pk_id_cliente SERIAL PRIMARY KEY,
     nome VARCHAR(400) NOT NULL,
     cpf VARCHAR(14) NOT NULL UNIQUE,
-    sexo VARCHAR(20) NOT NULL,
+    genero VARCHAR(20) NOT NULL,
     rua VARCHAR(200) NOT NULL,
     numero VARCHAR(10) NOT NULL,
     bairro VARCHAR(100) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS cliente (
     email VARCHAR(1000) NOT NULL UNIQUE
 );
 
-INSERT INTO cliente (nome, cpf, sexo, rua, numero, bairro, cidade, uf, telefone, email) 
+INSERT INTO cliente (nome, cpf, genero, rua, numero, bairro, cidade, uf, telefone, email) 
 VALUES ('João Silva', '123.456.780-10', 'Masculino', 'Rua das Flores', '123', 'Centro', 'São Paulo', 'SP', '(11) 90234-5678', 'joao.siilva@example.com'),
        ('Maria Souza', '987.654.321-00', 'Feminino', 'Avenida Principal', '456', 'Bela Vista', 'Rio de Janeiro', 'RJ', '(21) 98765-4321', 'maria.souza@example.com'),
        ('Pedro Oliveira', '456.789.123-20', 'Masculino', 'Rua das Palmeiras', '789', 'Jardim América', 'Belo Horizonte', 'MG', '(31) 87654-3210', 'pedro.oliveira@example.com'),
@@ -32,14 +32,14 @@ VALUES ('João Silva', '123.456.780-10', 'Masculino', 'Rua das Flores', '123', '
        ('Laura Lima', '456.789.123-90', 'Feminino', 'Rua das Flores', '258', 'Jardim Botânico', 'Rio de Janeiro', 'RJ', '(21) 21098-7654', 'laura.lima@example.com');
 
 
--- Funcionario: id, nome, cpf, data_nascimento, sexo, endereço(rua, numero, bairro, cidade, estado), telefone, email, salario, cargo, carga_horario_semanal, usuario, senha permissao(Adminin ou comum), atividade( Aitvo ou Inativo)
+-- Funcionario: id, nome, cpf, data_nascimento, genero, endereço(rua, numero, bairro, cidade, estado), telefone, email, salario, cargo, carga_horario_semanal, usuario, senha permissao(Adminin ou comum), atividade( Aitvo ou Inativo)
 
 CREATE TABLE IF NOT EXISTS funcionario (
     pk_id_funcionario SERIAL PRIMARY KEY,
     nome VARCHAR(300) NOT NULL,
     cpf VARCHAR(14) NOT NULL UNIQUE,
     data_nascimento DATE NOT NULL,
-    sexo VARCHAR(20) NOT NULL,
+    genero VARCHAR(20) NOT NULL,
     rua VARCHAR(200) NOT NULL,
     numero VARCHAR(10) NOT NULL,
     bairro VARCHAR(100) NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS funcionario (
     atividade VARCHAR(8) NOT NULL
 );
 
-INSERT INTO funcionario (nome, cpf, data_nascimento, sexo, rua, numero, bairro, cidade, uf, telefone, email, salario, cargo, carga_horaria_semanal, usuario, senha, permissao, atividade)  
+INSERT INTO funcionario (nome, cpf, data_nascimento, genero, rua, numero, bairro, cidade, uf, telefone, email, salario, cargo, carga_horaria_semanal, usuario, senha, permissao, atividade)  
 VALUES  
 ('Julia Dias', '999-089-092-10', '2006-04-03', 'Feminino', 'Rua verdes', '198', 'Alvorada', 'Pedra Azul', 'MG', '(22) 99822-0989', 'juliadias@gmail.com', 6000.00, 'Admininistrador', 50, 'admin', 'admin', 'Admin', 'Ativo'),
 ('Carlos Oliveira', '123.456.789-11', '1990-05-15', 'Masculino', 'Rua dos Funcionários', '101', 'Centro', 'São Paulo', 'SP', '(11) 91234-5678', 'carlos.oliveira@example.com', 3000.00, 'Atendente', 40, 'carlos', 'senha103', 'Comum', 'Ativo'),  
@@ -200,7 +200,6 @@ CREATE TABLE item_compra (
     pk_id_compra SERIAL NOT NULL,
     fk_compra BIGINT UNSIGNED NOT NULL,
     fk_produto BIGINT UNSIGNED NOT NULL,
-    data DATE NOT NULL,
     quantidade_produto INT UNSIGNED NOT NULL,
     preco_custo DOUBLE(7 , 2 ) NOT NULL,
     desconto DOUBLE(5 , 2 ) NOT NULL,

@@ -6,7 +6,7 @@ public class ModelFuncionario {
     private String nome;
     private String cpf;
     private String dataNascimento;
-    private String sexo;
+    private String genero;
     private String rua;
     private String numero;
     private String bairro;
@@ -29,7 +29,7 @@ public class ModelFuncionario {
             String nome,
             String cpf,
             String dataNascimento,
-            String sexo,
+            String genero,
             String rua,
             String numero,
             String bairro,
@@ -48,7 +48,7 @@ public class ModelFuncionario {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
-        this.sexo = sexo;
+        this.genero = genero;
         this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
@@ -97,12 +97,12 @@ public class ModelFuncionario {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public String getRua() {
